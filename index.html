@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - Engr Usman Ibrahim</title>
+  <link rel="icon" href="sa.png" type="image/png" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #e0eafc, #cfdef3);
+      color: #2d3436;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(90deg, #0984e3, #74b9ff);
+      padding: 20px 40px;
+      color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 2px;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px;
+      transition: color 0.3s ease;
+    }
+    .nav-links li a:hover {
+      color: #dfe6e9;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin-bottom: 5px;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+    .main-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 50vh;
+      padding: 40px;
+      margin-bottom: 0;
+    }
+    .text-section {
+      flex: 1;
+      max-width: 60%;
+    }
+    .text-section h3 {
+      font-size: 2rem;
+      font-weight: 400;
+      color: #2d3436;
+      margin-bottom: 1rem;
+    }
+    .text-section h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin: 0 0 20px 0;
+    }
+    .highlight {
+      color: #0984e3;
+    }
+    #text-changer {
+      font-size: 1.6rem;
+      color: #0984e3;
+      font-weight: 500;
+      margin-top: 20px;
+    }
+    .image-section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .image-section img {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+    .image-section img:hover {
+      transform: scale(1.05);
+    }
+    @media (max-width: 700px) {
+      .main-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+      }
+      .text-section, .image-section {
+        max-width: 100%;
+        width: 100%;
+      }
+      .image-section {
+        margin-top: 20px;
+      }
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: #0984e3;
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0;
+        transition: max-height 0.3s ease;
+      }
+      .nav-links.active {
+        max-height: 400px;
+        padding: 20px;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 40px 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      background: linear-gradient(135deg, #ffffff, #f1f2f6);
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    .card i {
+      font-size: 32px;
+      color: #0984e3;
+      margin-bottom: 12px;
+    }
+    .card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: #636e72;
+    }
+    footer {
+      background: linear-gradient(90deg, #dfe6e9, #b2bec3);
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-info h6 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .footer-info p {
+      font-size: 0.9rem;
+      color: #2d3436;
+    }
+    .footer-social a {
+      margin-right: 15px;
+      color: #0984e3;
+      font-size: 1.4rem;
+      transition: color 0.3s ease;
+    }
+    .footer-social a:hover {
+      color: #74b9ff;
+    }
+    .footer-contact a {
+      color: #0984e3;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    .footer-contact a:hover {
+      color: #74b9ff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">UI</div>
+      <ul class="nav-links">
+        <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="about.html"><i class="fa fa-user"></i> About</a></li>
+        <li><a href="projects.html"><i class="fa fa-code"></i> Projects</a></li>
+        <li><a href="contact.html"><i class="fa fa-envelope"></i> Contact</a></li>
+        <li><a href="services.html"><i class="fa fa-cogs"></i> Services</a></li>
+      </ul>
+      <button onclick="toggleMenu()" class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+  <div class="main-content">
+    <div class="text-section">
+      <h3>Hi There! 👋</h3>
+      <h2>I'M <span class="highlight">ENGR USMAN IBRAHIM</span></h2>
+      <div id="text-changer">Developer</div>
+    </div>
+    <div class="image-section">
+      <img src="ni.png" alt="Portrait of Engr Usman Ibrahim" loading="lazy" />
+    </div>
+  </div>
+  <div class="container">
+    <div class="card">
+      <i class="fas fa-laptop-code"></i>
+      <h3>Software Development</h3>
+      <p>Building scalable applications and systems.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-globe"></i>
+      <h3>Web Development</h3>
+      <p>Crafting responsive and modern websites.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-robot"></i>
+      <h3>Machine Learning</h3>
+      <p>Teaching machines to learn and predict.</p>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <h6>ENGR USMAN IBRAHIM</h6>
+        <p>Software Developer | Web Designer | Machine Learning Enthusiast</p>
+        <p>© 2025 Engr Usman Ibrahim. All rights reserved.</p>
+      </div>
+      <div class="footer-social">
+        <a href="https://twitter.com/Usman1704145224" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://Instagram.com/_usma_nibro_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/Uibra" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <div class="footer-contact">
+        <a href="mailto:techtalent247@gmail.com">Contact Me</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+      document.querySelector('.hamburger').classList.toggle('active');
+    }
+    const textChanger = document.getElementById('text-changer');
+    const texts = [
+      'Programmer',
+      'Web Designer',
+      'Developer',
+      'Software Engineer',
+      'App Developer',
+      'Ethical Hacker',
+      'Machine Learner'
+    ];
+    let index = 0;
+    let cursorInterval;
+    function changeText() {
+      clearInterval(cursorInterval);
+      let currentText = texts[index];
+      textChanger.innerHTML = currentText + '<span id="cursor"> |</span>';
+      let blink = true;
+      cursorInterval = setInterval(() => {
+        const cursor = document.getElementById('cursor');
+        if (cursor) {
+          cursor.style.visibility = blink ? 'visible' : 'hidden';
+        }
+        blink = !blink;
+      }, 500);
+      setTimeout(() => {
+        let text = currentText;
+        function deleteText() {
+          if (text.length > 0) {
+            text = text.slice(0, -1);
+            textChanger.innerHTML = text + '<span id="cursor">|</span>';
+            setTimeout(deleteText, 100);
+          } else {
+            let nextText = texts[(index + 1) % texts.length];
+            let i = 0;
+            function typeText() {
+              if (i <= nextText.length) {
+                textChanger.innerHTML =
+                  nextText.substring(0, i) + '<span id="cursor">|</span>';
+                i++;
+                setTimeout(typeText, 100);
+              } else {
+                index = (index + 1) % texts.length;
+                setTimeout(changeText, 3000);
+              }
+            }
+            typeText();
+          }
+        }
+        deleteText();
+      }, 3000);
+    }
+    changeText();
+  </script>
+</body>
+</html>
