@@ -289,7 +289,29 @@
   </div>
 </div>
 
+<footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <h6>ENGR USMAN IBRAHIM</h6>
+        <p>Software Developer | Web Designer | Machine Learning Enthusiast</p>
+        <p>© 2025 Engr Usman Ibrahim. All rights reserved.</p>
+      </div>
+      <div class="footer-social">
+        <a href="https://twitter.com/Usman1704145224" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://Instagram.com/_usma_nibro_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/Uibra" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <div class="footer-contact">
+        <a href="mailto:techtalent247@gmail.com">Contact Me</a>
+      </div>
+    </div>
+  </footer>
+
 <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+      document.querySelector('.hamburger').classList.toggle('active');
+    }
   document.querySelector('#contactForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
